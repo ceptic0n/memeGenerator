@@ -12,10 +12,22 @@ body{
     height:200px;
 }
 
-.bottomText{
+.topText, .bottomText{
     position:absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:white;
+    font-size: 24px;
+    text-shadow:-1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
 }
 
 .topText{
-    position:absolute;
+    left:150px
+}
+
+.bottomText{
+    bottom:30px;
+    left:150px;
 }

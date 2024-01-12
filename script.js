@@ -1,7 +1,7 @@
 const memeForm = document.querySelector(".memeForm");
 const memeLink = document.querySelector(".memeLink");
-const topText = document.querySelector(".topText");
-const bottomText = document.querySelector(".bottomText");
+const topTextForm = document.querySelector(".topTextForm");
+const bottomTextForm = document.querySelector(".bottomTextForm");
 const memeCollection = document.querySelector(".memeCollection");
 
 
@@ -18,8 +18,8 @@ memeForm.addEventListener("click", function(e){
         console.log("You clicked Submit!");
 
         //store top, bottom, and link in string variables
-        let top = topText.value;
-        let bottom = bottomText.value;
+        let top = topTextForm.value;
+        let bottom = bottomTextForm.value;
         let imageLink = memeLink.value;
 
 
@@ -60,8 +60,8 @@ memeForm.addEventListener("click", function(e){
 
         //reset Inputs
         memeLink.value = "";
-        topText.value = "";
-        bottomText.value = "";
+        topTextForm.value = "";
+        bottomTextForm.value = "";
     }
 
 
