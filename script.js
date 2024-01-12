@@ -2,8 +2,6 @@ const memeForm = document.querySelector(".memeForm");
 const memeImage = document.querySelector(".memeImage");
 const topText = document.querySelector(".topText");
 const bottomText = document.querySelector(".bottomText");
-
-
 const memeList = document.querySelector(".memeList");
 
 
@@ -22,20 +20,23 @@ memeForm.addEventListener("click", function(e){
         //store top, bottom, and link in string variables
         let top = topText.value;
         let bottom = bottomText.value;
-        let image = memeImage.value;
+        let imageLink = memeImage.value;
 
-        //combine strings to a single string
-        let meme = memeify(top, bottom, image);
+        //combine top text and bottom text to a single string
+        let memeText = memeify(top, bottom);
 
-        //add memeString as a new li to the "memeList";
+        //grab image
+        let newImage = document.createElement("img");
+
+        //combine image and memeText into an li
         let newMeme = document.createElement("li");
-        newMeme.innerText = meme;
+        // newMeme.appendChild(memeText);
+        newMeme.appendChild(imageCreate(newImage, imageLink));
         memeList.appendChild(newMeme);
 
+
+
         //reset Inputs
-        // memeImage.setAttribute("placeholder","Enter the Link of your Photo");
-        // topText.setAttribute("placeholder","(Optional) What Text do you want to display on top?");
-        // bottomText.setAttribute("placeholder","(Optional) What text do you want to display on the Bottom?");
         memeImage.value = "";
         topText.value = "";
         bottomText.value = "";
@@ -47,6 +48,15 @@ memeForm.addEventListener("click", function(e){
 
 //convert String to meme
 function memeify(top, bottom, image){
-    let meme = `${top}${bottom}${image}`;
-    return meme;
+    let memeText = `${top}${bottom}`;
+    return memeText;
+}
+
+//convert image link to an image for the website, take in img element
+function imageCreate(newImage, imageLink){
+    newImage.src = imageLink;
+    newImage.width = 300;
+    newImage.height = 200;
+    return newImage;
+
 }
