@@ -1,5 +1,5 @@
 const memeForm = document.querySelector(".memeForm");
-const memeImage = document.querySelector(".memeImage");
+const memeLink = document.querySelector(".memeLink");
 const topText = document.querySelector(".topText");
 const bottomText = document.querySelector(".bottomText");
 const memeCollection = document.querySelector(".memeCollection");
@@ -20,7 +20,7 @@ memeForm.addEventListener("click", function(e){
         //store top, bottom, and link in string variables
         let top = topText.value;
         let bottom = bottomText.value;
-        let imageLink = memeImage.value;
+        let imageLink = memeLink.value;
 
 
         //create new div, img, and p tags for new Meme to be added
@@ -29,15 +29,15 @@ memeForm.addEventListener("click", function(e){
         let newTopText = document.createElement("p");
         let newBottomText = document.createElement("p");
 
-        //change value of new elements, and change size of image;
+        //change value of new elements
         newImage.src=imageLink;
-        newImage.width = 300;
-        newImage.height = 200;
         newTopText.textContent = top;
         newBottomText.textContent = bottom;
 
         //change attributes to overlay text on top of newMeme
-
+        newImage.classList.toggle("memeImage");
+        newTopText.classList.toggle("topText");
+        newBottomText.classList.toggle("bottomText");
         
 
         //append topText and bottomText to newMeme div
@@ -45,6 +45,7 @@ memeForm.addEventListener("click", function(e){
         newMeme.appendChild(newImage);
         newMeme.appendChild(newBottomText);
 
+        //add entire meme to memeCollection
         memeCollection.appendChild(newMeme);
         
 
@@ -58,7 +59,7 @@ memeForm.addEventListener("click", function(e){
 
 
         //reset Inputs
-        memeImage.value = "";
+        memeLink.value = "";
         topText.value = "";
         bottomText.value = "";
     }

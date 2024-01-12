@@ -5,3 +5,17 @@ body{
 .memeForm{
     background-color: gray;
 }
+
+.memeImage{
+    display:flex;
+    width:300px;
+    height:200px;
+}
+
+.bottomText{
+    position:absolute;
+}
+
+.topText{
+    position:absolute;
+}
