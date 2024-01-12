@@ -2,7 +2,7 @@ const memeForm = document.querySelector(".memeForm");
 const memeImage = document.querySelector(".memeImage");
 const topText = document.querySelector(".topText");
 const bottomText = document.querySelector(".bottomText");
-const memeList = document.querySelector(".memeList");
+const memeCollection = document.querySelector(".memeCollection");
 
 
 //event Delegate for the Meme Form
@@ -22,17 +22,38 @@ memeForm.addEventListener("click", function(e){
         let bottom = bottomText.value;
         let imageLink = memeImage.value;
 
-        //combine top text and bottom text to a single string
-        let memeText = memeify(top, bottom);
 
-        //grab image
+        //create new div, img, and p tags for new Meme to be added
+        let newMeme = document.createElement("div");
         let newImage = document.createElement("img");
+        let newTopText = document.createElement("p");
+        let newBottomText = document.createElement("p");
 
-        //combine image and memeText into an li
-        let newMeme = document.createElement("li");
-        // newMeme.appendChild(memeText);
-        newMeme.appendChild(imageCreate(newImage, imageLink));
-        memeList.appendChild(newMeme);
+        //change value of new elements, and change size of image;
+        newImage.src=imageLink;
+        newImage.width = 300;
+        newImage.height = 200;
+        newTopText.textContent = top;
+        newBottomText.textContent = bottom;
+
+        //change attributes to overlay text on top of newMeme
+
+        
+
+        //append topText and bottomText to newMeme div
+        newMeme.appendChild(newTopText);
+        newMeme.appendChild(newImage);
+        newMeme.appendChild(newBottomText);
+
+        memeCollection.appendChild(newMeme);
+        
+
+
+        // //combine image and memeText into an li
+        // let newMeme = document.createElement("li");
+        // // newMeme.appendChild(memeText);
+        // newMeme.appendChild(imageCreate(newImage, imageLink));
+        // memeList.appendChild(newMeme);
 
 
 
