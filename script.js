@@ -28,7 +28,7 @@ memeForm.addEventListener("click", function(e){
 
 
         //create new div, img, and p tags for new Meme to be added
-        let newMeme = document.createElement("div");
+        let newMemeContainer = document.createElement("div");
         let newImage = document.createElement("img");
         let newTopText = document.createElement("p");
         let newBottomText = document.createElement("p");
@@ -39,18 +39,19 @@ memeForm.addEventListener("click", function(e){
         newBottomText.textContent = bottom;
 
         //change attributes to overlay text on top of newMeme
+        newMemeContainer.classList.toggle("memeContainer");
         newImage.classList.toggle("memeImage");
         newTopText.classList.toggle("topText");
         newBottomText.classList.toggle("bottomText");
         
 
         //append topText and bottomText to newMeme div
-        newMeme.appendChild(newTopText);
-        newMeme.appendChild(newImage);
-        newMeme.appendChild(newBottomText);
+        newMemeContainer.appendChild(newTopText);
+        newMemeContainer.appendChild(newImage);
+        newMemeContainer.appendChild(newBottomText);
 
         //add entire meme to memeCollection
-        memeCollection.appendChild(newMeme);
+        memeCollection.appendChild(newMemeContainer);
 
         //reset Inputs
         memeLink.value = "";
@@ -64,10 +65,9 @@ memeForm.addEventListener("click", function(e){
 //remove meme
 
 memeCollection.addEventListener("click", function(e){
-    console.log(`You clicked, ${e.target}`);
-    if(e.target.type === "IMG"){
-        
-        e.target.remove(e.target);
+    console.log(`You clicked, ${e.target.tagName}`);
+    if(e.target.tagName === "IMG"){
+        e.target.remove();
     }
 
 })

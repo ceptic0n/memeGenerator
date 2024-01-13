@@ -6,10 +6,15 @@ body{
     background-color: gray;
 }
 
+.memeContainer{
+    position: relative;
+}
+
 .memeImage{
-    display:relative;
     width:300px;
     height:200px;
+    display: block;
+    margin: 0 auto;
 }
 
 .topText, .bottomText{
@@ -24,10 +29,13 @@ body{
 }
 
 .topText{
-    left:150px
+    top:10px;
+    left: 50%;
+    transform:translateX(-50%);
 }
 
 .bottomText{
-    bottom:10px;
-    left:150px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
