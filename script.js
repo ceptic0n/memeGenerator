@@ -1,7 +1,12 @@
+//selector for the overall Meme Form
 const memeForm = document.querySelector(".memeForm");
+//image link for meme
 const memeLink = document.querySelector(".memeLink");
+//top text from the form
 const topTextForm = document.querySelector(".topTextForm");
+//bottomText from the form
 const bottomTextForm = document.querySelector(".bottomTextForm");
+//div containing all memes
 const memeCollection = document.querySelector(".memeCollection");
 
 
@@ -11,7 +16,6 @@ memeForm.addEventListener("click", function(e){
     //prevent page from reloading
     e.preventDefault();
 
-    
 
     //this is what happens when you click SUBMIT
     if(e.target.type === "submit"){
@@ -30,7 +34,7 @@ memeForm.addEventListener("click", function(e){
         let newBottomText = document.createElement("p");
 
         //change value of new elements
-        newImage.src=imageLink;
+        newImage.src = imageLink;
         newTopText.textContent = top;
         newBottomText.textContent = bottom;
 
@@ -47,16 +51,6 @@ memeForm.addEventListener("click", function(e){
 
         //add entire meme to memeCollection
         memeCollection.appendChild(newMeme);
-        
-
-
-        // //combine image and memeText into an li
-        // let newMeme = document.createElement("li");
-        // // newMeme.appendChild(memeText);
-        // newMeme.appendChild(imageCreate(newImage, imageLink));
-        // memeList.appendChild(newMeme);
-
-
 
         //reset Inputs
         memeLink.value = "";
@@ -67,18 +61,13 @@ memeForm.addEventListener("click", function(e){
 
 })
 
+//remove meme
 
-//convert String to meme
-function memeify(top, bottom, image){
-    let memeText = `${top}${bottom}`;
-    return memeText;
-}
+memeCollection.addEventListener("click", function(e){
+    console.log(`You clicked, ${e.target}`);
+    if(e.target.type === "IMG"){
+        
+        e.target.remove(e.target);
+    }
 
-//convert image link to an image for the website, take in img element
-function imageCreate(newImage, imageLink){
-    newImage.src = imageLink;
-    newImage.width = 300;
-    newImage.height = 200;
-    return newImage;
-
-}
+})
